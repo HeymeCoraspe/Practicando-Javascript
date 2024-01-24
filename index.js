@@ -86,7 +86,7 @@ if(resultado===0){
 } else{
 
     alert(`El número ${num} no es divisible por 2`);
-}*/
+}
 /** 
 9.- Escribe un programa que pida una frase y escriba las vocales que aparecen
 Nota: Tener en cuenta la función length y substring o charAt (developer mozilla)*/
@@ -94,7 +94,8 @@ Nota: Tener en cuenta la función length y substring o charAt (developer mozilla
 //.length cuenta los caracteres de la cadena, también los espacios en blanco
 // .charAt devolve la posición del carácter que le pasemos como parámetro en el interior de la cadena.
 //.toLowerCase transforma mayúsculas en minúsculas, si no, no las cuenta
-
+//https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/substring
+/** 
 let frase = prompt("Introduzca una palabra o texto") ;
 let fraseMin= frase.toLocaleLowerCase();
 
@@ -138,6 +139,54 @@ for (let i = 0 ; i < fraseMin.length ; i++) {
 document.write(`${frase}..  ` );
 document.write(`Tu frase tiene ${frase.length} letras en total..   `);
 document.write(`  Vocales:  a= ${contadorA} , e= ${contadorE} , i= ${contadorI} , o=${contadorO} , u=${contadorU} `);
+*/
 
 
+/**
+INTEGRACION ELEMENTOS ESENCIALES JAVASCRIPT
+(constantes, variables, tipos de datos, condiciones, ciclos, contadores, operadores).
 
+RONDA DE PERSONAS:
+
+-Una ronda de 10 personas debe contar hasta 100, comenzando en sentido horario y turnándose de 1 en 1 (la 1er persona dice 1, la 2da dice 2, y así sucesivamente).
+
+-Cada vez que la cuenta llega a un valor perfectamente divisible por 8, se debe invertir el sentido de la ronda y continuar el conteo.
+
+-Cada vez que la cuenta llega a un valor perfectamente divisible por 11, se debe saltar una persona y continuar el conteo.
+
+-Intenten integrar el uso de los elementos básicos vistos, para poder realizar este conteo bajo las condiciones que se piden. 
+No importa si no logran 100% de funcionalidad, pero por favor inténtenlo. */
+
+
+const cantidadPersonas=10;
+const limiteCuenta=50;
+
+let persona=0;
+let sentidoHorario=true;
+
+
+//cuenta debe iniciar en 1 para que no cuente desde cero
+for (let cuenta = 1; cuenta <= limiteCuenta; cuenta++) {
+    if (sentidoHorario === true) {
+        if (persona !== cantidadPersonas) {
+            persona++; // igual a persona = persona + 1
+        } else {
+            persona = 1;
+        }
+    } else {
+        if (persona !== 1) {
+            persona--; // igual a persona = persona - 1
+        } else {
+            persona = cantidadPersonas;
+        } 
+    }
+    console.log(`Persona ${persona} dice ${cuenta}`);
+}
+/**
+    if (cuenta % 8 === 0) {
+        sentidoHorario = !sentidoHorario;
+    }
+
+    if (cuenta % 11 === 0) {}
+    
+    console.log(`Persona ${persona} dice ${cuenta}`);}*/
