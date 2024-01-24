@@ -95,7 +95,7 @@ Nota: Tener en cuenta la función length y substring o charAt (developer mozilla
 // .charAt devolve la posición del carácter que le pasemos como parámetro en el interior de la cadena.
 //.toLowerCase transforma mayúsculas en minúsculas, si no, no las cuenta
 //https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/substring
-/** 
+/**
 let frase = prompt("Introduzca una palabra o texto") ;
 let fraseMin= frase.toLocaleLowerCase();
 
@@ -106,8 +106,8 @@ let contadorO= 0;
 let contadorU= 0;
 
 
-for (let i = 0 ; i < fraseMin.length ; i++) {
 
+for (let i = 0 ; i < fraseMin.length ; i++) {
 
 	switch(fraseMin.charAt(i)) {
 
@@ -136,10 +136,92 @@ for (let i = 0 ; i < fraseMin.length ; i++) {
 
 }
 
-document.write(`${frase}..  ` );
-document.write(`Tu frase tiene ${frase.length} letras en total..   `);
-document.write(`  Vocales:  a= ${contadorA} , e= ${contadorE} , i= ${contadorI} , o=${contadorO} , u=${contadorU} `);
-*/
+document.write(` ${frase}  ` +"<br>");
+document.write(` Tu frase tiene ${frase.length} letras en total.`+"<br>");
+document.write(` Vocales:  a= ${contadorA} , e= ${contadorE} , i= ${contadorI} , o=${contadorO} , u=${contadorU} `+"<br>");
+
+if(contadorA>0){
+    document.write(" a ");
+    if(contadorE>0){
+        document.write(" e ");  
+    }
+    if(contadorI){
+        document.write(" i ");
+    }
+    if(contadorO){
+        document.write(" o ");
+    }
+    if(contadorU){
+        document.write(" u ");
+    }
+}*/
+
+
+//10.- Escribe un programa que pida un número y nos diga si es divisible por 2, 3, 5 o 7 (sólo hay que comprobar si lo es por uno de los cuatro)
+//Ejemplo: input: 20 Output: El 20 es divisible por 2.
+/** 
+const num= parseInt(prompt("Ingrese un número: "));
+const divisor2= num % 2 === 0;
+const divisor3= num % 3 === 0;
+const divisor5= num % 5 === 0;
+const divisor7= num % 7 === 0;
+
+if(num % 2 === 0){
+    alert(`El numero es divisible por 2`);
+} 
+if (num % 3 === 0 ){
+    alert(`El numero es divisible por 2 y 3`);
+} 
+if ( num % 5 === 0 ){
+    alert(`El numero es divisible por 2, 3 y 5`);
+}
+if ( num % 7 === 0 ){
+    alert(`El numero es divisible por 2, 3, 5 y 7`);
+} 
+
+else {
+    alert(`El número no es divisible por ningún número`);
+}*/
+
+var n1 = prompt("Escribe un número");
+if (n1 % 2 === 0 || n1 % 3 === 0 || n1 % 5 === 0 || n1 % 7 === 0) {
+if (n1 % 2 === 0) {
+document.write("Es divisible por 2. ");
+}
+if (n1 % 3 === 0) {
+document.write("Es divisible por 3. ");
+}
+if (n1 % 5 === 0) {
+document.write("Es divisible por 5. ");
+}
+if (n1 % 7 === 0) {
+document.write("Es divisible por 7. ");
+}
+} else {
+document.write("No es divisible ni por 2, ni por 3, ni por 5, ni por 7");
+}
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /**
@@ -157,7 +239,7 @@ RONDA DE PERSONAS:
 -Intenten integrar el uso de los elementos básicos vistos, para poder realizar este conteo bajo las condiciones que se piden. 
 No importa si no logran 100% de funcionalidad, pero por favor inténtenlo. */
 
-
+/** 
 const cantidadPersonas=10;
 const limiteCuenta=50;
 
@@ -168,25 +250,64 @@ let sentidoHorario=true;
 //cuenta debe iniciar en 1 para que no cuente desde cero
 for (let cuenta = 1; cuenta <= limiteCuenta; cuenta++) {
     if (sentidoHorario === true) {
+        // Si se está contando en sentido horario
+        // se incrementa persona mientras no llegue al límite de cantidad,
+        // sino se resetea a 1
         if (persona !== cantidadPersonas) {
-            persona++; // igual a persona = persona + 1
+            persona++; // es lo mismo que escribir persona = persona + 1
         } else {
             persona = 1;
         }
     } else {
+        // Si se está contando en sentido antihorario
+        // se decrementa persona mientras no llegue a 1,
+        // sino se resetea al límite de cantidad
         if (persona !== 1) {
-            persona--; // igual a persona = persona - 1
+            persona--; // es lo mismos que escribir persona = persona - 1
         } else {
             persona = cantidadPersonas;
-        } 
-    }
-    console.log(`Persona ${persona} dice ${cuenta}`);
-}
-/**
-    if (cuenta % 8 === 0) {
-        sentidoHorario = !sentidoHorario;
+        }
     }
 
-    if (cuenta % 11 === 0) {}
-    
-    console.log(`Persona ${persona} dice ${cuenta}`);}*/
+    // Si la cuenta es perfectamente divisible por 8, se invierte la variable
+    if (cuenta % 8 === 0) {
+        sentidoHorario = !sentidoHorario; // ! operador not, negación
+    }
+
+    console.log(`Persona ${persona} dice ${cuenta}`);
+
+
+    if (cuenta % 11 === 0) {
+        //if (sentidoHorario === true) {
+        //    persona++;
+        //} else {
+        //    persona--;
+        //}
+        //operador ternario
+        sentidoHorario ? persona++ : persona--;
+    }
+}
+
+const lecturas =[9,-2,-1,15,16,3,-3,5];
+
+let sumatoria=0;
+
+for(C=0; c< lecturas.length;C++){
+
+    sumatoria= sumatoria+lecturas[c];
+}
+
+const promedio= sumatoria/lecturas.length;
+
+console.log (sumatoria);
+console.log (promedio);*/
+
+/** 
+function calcularSpuerficie(largo, ancho){
+    return largo*ancho;
+}
+
+const superficie= calcularSpuerficie(5,5);
+console.log(superficie);*/
+
+
